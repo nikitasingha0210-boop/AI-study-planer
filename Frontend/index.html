@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study Planner</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ═══════════════════════════════════════════
+       GOOGLE FONTS — Premium SaaS Typography
+       Heading : Plus Jakarta Sans (modern, bold)
+       Body    : Inter (most readable UI font)
+  ═══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       LANDING PAGE
+  ═══════════════════════════════════════════ -->
+  <div id="page-landing" class="page active">
+    <nav class="land-nav">
+      <div class="logo">⬡ StudyAI</div>
+      <div class="land-nav-actions">
+        <button class="btn-ghost" onclick="showPage('login')">Login</button>
+        <button class="btn-primary" onclick="showPage('login')">Get Started</button>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-content">
+        <span class="hero-badge">✦ Powered by AI</span>
+        <h1 class="hero-title">Plan Smarter,<br><span class="accent-text">Study Better</span></h1>
+        <p class="hero-sub">Your intelligent study companion that adapts to your schedule, subjects, and goals — automatically.</p>
+        <div class="hero-cta">
+          <button class="btn-primary btn-lg" onclick="showPage('login')">Start for Free →</button>
+          <button class="btn-ghost btn-lg" onclick="showPage('login')">See Demo</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card hc1">
+          <div class="hc-icon">📚</div>
+          <div class="hc-label">DSA Practice</div>
+          <div class="hc-bar"><div class="hc-fill" style="width:72%"></div></div>
+          <div class="hc-pct">72%</div>
+        </div>
+        <div class="hero-card hc2">
+          <div class="hc-icon">🧠</div>
+          <div class="hc-label">AI/ML Concepts</div>
+          <div class="hc-bar"><div class="hc-fill" style="width:45%"></div></div>
+          <div class="hc-pct">45%</div>
+        </div>
+        <div class="hero-card hc3">
+          <div class="hc-icon">🗄️</div>
+          <div class="hc-label">DBMS Revision</div>
+          <div class="hc-bar"><div class="hc-fill" style="width:88%"></div></div>
+          <div class="hc-pct">88%</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <h2 class="section-title">Everything you need to ace exams</h2>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🏷️</div>
+          <h3>Your Own Subjects</h3>
+          <p>Add any subject you study — DSA, DBMS, OS, Physics, Law — no restrictions. Fully custom.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🗓️</div>
+          <h3>Smart Planner</h3>
+          <p>Calendar-based study scheduling that adapts to your pace and priorities.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">⚡</div>
+          <h3>AI Timetable</h3>
+          <p>Generate a complete study plan in seconds based on your exam date and your subjects.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">✅</div>
+          <h3>Task Tracker</h3>
+          <p>Stay on top of every task, deadline, and milestone with smart checklists.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📊</div>
+          <h3>Progress Insights</h3>
+          <p>Visual progress charts to see how far you've come — and what's left.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🎯</div>
+          <h3>Goal Setting</h3>
+          <p>Define clear goals and watch them turn into achievements, one session at a time.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="land-footer">
+      <div class="logo">⬡ StudyAI</div>
+      <p>© 2025 AI Study Planner. Built for learners.</p>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       LOGIN / SIGNUP PAGE
+  ═══════════════════════════════════════════ -->
+  <div id="page-login" class="page">
+    <div class="auth-wrapper">
+      <div class="auth-left">
+        <div class="auth-brand" onclick="showPage('landing')" style="cursor:pointer">
+          <span class="logo">⬡ StudyAI</span>
+        </div>
+        <h2 class="auth-tagline">Your personalized<br>study planner awaits.</h2>
+        <div class="auth-feature-list">
+          <div class="afl-item">✦ Add any subject you study</div>
+          <div class="afl-item">✦ AI-generated timetables</div>
+          <div class="afl-item">✦ Progress tracking</div>
+        </div>
+      </div>
+      <div class="auth-right">
+        <div class="auth-card">
+          <div class="auth-tabs">
+            <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Login</button>
+            <button class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">Sign Up</button>
+          </div>
+          <div id="form-login" class="auth-form active">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="login-email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="login-pass" placeholder="••••••••" />
+            </div>
+            <button class="btn-primary btn-full" onclick="doLogin()">Login →</button>
+            <p class="auth-switch">Don't have an account? <span onclick="switchAuthTab('signup')">Sign Up</span></p>
+          </div>
+          <div id="form-signup" class="auth-form">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="signup-name" placeholder="Alex Johnson" />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="signup-email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="signup-pass" placeholder="••••••••" />
+            </div>
+            <button class="btn-primary btn-full" onclick="doSignup()">Create Account →</button>
+            <p class="auth-switch">Already have an account? <span onclick="switchAuthTab('login')">Login</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SUBJECT SETUP PAGE
+  ═══════════════════════════════════════════ -->
+  <div id="page-setup" class="page">
+    <div class="setup-wrapper">
+      <div class="setup-card">
+        <div class="setup-logo">⬡ StudyAI</div>
+        <h1 class="setup-title">What do you study? 🎓</h1>
+        <p class="setup-sub">
+          Type <strong>any subject</strong> you want to track —
+          <em>DSA, DBMS, OS, Physics, Law, Finance, Chemistry</em> — whatever you study.
+          No preset subjects. It's 100% yours.
+        </p>
+        <div class="setup-input-row">
+          <input type="text" id="setup-subject-input" placeholder="e.g. Operating Systems, Machine Learning, Calculus..." maxlength="50" />
+          <button class="btn-primary" onclick="setupAddSubject()">+ Add</button>
+        </div>
+        <p class="setup-hint">Press <kbd>Enter</kbd> to add quickly</p>
+        <div id="setup-tags" class="tag-row setup-tags-area"></div>
+        <div id="setup-empty-hint" class="setup-empty-hint">☝️ Add at least one subject to continue</div>
+        <button class="btn-primary btn-full setup-continue" id="setup-continue-btn" onclick="finishSetup()" disabled>
+          Continue to Dashboard →
+        </button>
+        <button class="btn-ghost btn-sm setup-skip" onclick="skipSetup()">Skip for now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN APP
+  ═══════════════════════════════════════════ -->
+  <div id="page-app" class="page">
+    <div class="app-layout">
+
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+          <span class="logo">⬡ StudyAI</span>
+          <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="nav-item active" data-section="dashboard" onclick="switchSection('dashboard')"><span class="nav-icon">⊞</span> Dashboard</a>
+          <a class="nav-item" data-section="planner" onclick="switchSection('planner')"><span class="nav-icon">🗓️</span> Planner</a>
+          <a class="nav-item" data-section="ai-planner" onclick="switchSection('ai-planner')"><span class="nav-icon">⚡</span> AI Planner</a>
+          <a class="nav-item" data-section="tasks" onclick="switchSection('tasks')"><span class="nav-icon">✅</span> Tasks</a>
+          <a class="nav-item" data-section="progress" onclick="switchSection('progress')"><span class="nav-icon">📊</span> Progress</a>
+          <a class="nav-item" data-section="goals" onclick="switchSection('goals')"><span class="nav-icon">🎯</span> Goals</a>
+          <a class="nav-item" data-section="profile" onclick="switchSection('profile')"><span class="nav-icon">👤</span> Profile</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button class="btn-ghost btn-sm" onclick="doLogout()">⏻ Logout</button>
+        </div>
+      </aside>
+
+      <div class="main-area">
+        <header class="topbar">
+          <button class="hamburger" onclick="toggleSidebar()">☰</button>
+          <div class="topbar-title" id="topbar-title">Dashboard</div>
+          <div class="topbar-right">
+            <div class="topbar-avatar" id="topbar-avatar">A</div>
+          </div>
+        </header>
+
+        <main class="content">
+
+          <!-- DASHBOARD -->
+          <section id="section-dashboard" class="section active">
+            <div class="section-header">
+              <h1 id="dash-welcome">Hi, Alex 👋</h1>
+              <p class="section-sub">Here's your study snapshot for today.</p>
+            </div>
+            <div id="dash-no-subjects-banner" class="no-subjects-banner hidden">
+              🏷️ You haven't added any subjects yet.
+              <button class="btn-primary btn-sm" onclick="switchSection('profile')">Add Subjects →</button>
+            </div>
+            <div class="stats-row">
+              <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-info"><div class="stat-val" id="stat-hours">0h</div><div class="stat-label">Daily Goal</div></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info"><div class="stat-val" id="stat-done">0</div><div class="stat-label">Tasks Done</div></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">📌</div>
+                <div class="stat-info"><div class="stat-val" id="stat-pending">0</div><div class="stat-label">Tasks Pending</div></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-info"><div class="stat-val" id="stat-goals">0</div><div class="stat-label">Active Goals</div></div>
+              </div>
+            </div>
+            <div class="dash-grid">
+              <div class="card">
+                <div class="card-header">Today's Tasks</div>
+                <div id="dash-tasks-list" class="dash-tasks"></div>
+                <button class="btn-ghost btn-sm mt-1" onclick="switchSection('tasks')">View All Tasks →</button>
+              </div>
+              <div class="card">
+                <div class="card-header">Study Progress</div>
+                <div class="progress-block">
+                  <div class="progress-label"><span>Overall Completion</span><span id="dash-pct">0%</span></div>
+                  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="dash-progress-bar"></div></div>
+                </div>
+                <div id="dash-subject-progress"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- PLANNER -->
+          <section id="section-planner" class="section">
+            <div class="section-header">
+              <h1>📅 Weekly Planner</h1>
+              <p class="section-sub">Organize your study sessions by day.</p>
+            </div>
+            <div id="planner-no-subject-warn" class="inline-subject-adder hidden">
+              <span>⚠️ No subjects yet. Add one quickly:</span>
+              <div class="form-row">
+                <input type="text" id="planner-quick-sub" placeholder="e.g. DSA, Physics..." />
+                <button class="btn-primary btn-sm" onclick="quickAddSubject('planner-quick-sub')">+ Add Subject</button>
+              </div>
+            </div>
+            <div class="planner-controls">
+              <div class="form-row">
+                <input type="text" id="plan-task" placeholder="Task name..." />
+                <select id="plan-subject"></select>
+                <input type="date" id="plan-date" />
+                <button class="btn-primary" onclick="addPlannerTask()">+ Add</button>
+              </div>
+            </div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </section>
+
+          <!-- AI PLANNER -->
+          <section id="section-ai-planner" class="section">
+            <div class="section-header">
+              <h1>⚡ AI Study Plan Generator</h1>
+              <p class="section-sub">Let AI build a personalized timetable from your own subjects.</p>
+            </div>
+            <div class="card ai-card">
+              <div class="form-group">
+                <label>Study Hours per Day</label>
+                <input type="number" id="ai-hours" min="1" max="16" value="4" />
+              </div>
+              <div class="form-group">
+                <label>Exam / Target Date</label>
+                <input type="date" id="ai-exam-date" />
+              </div>
+              <div class="form-group">
+                <label>Your Subjects <span class="label-muted">(pulled from your profile)</span></label>
+                <div id="ai-subjects-preview" class="tag-row"></div>
+              </div>
+              <div id="ai-no-subject-warn" class="inline-subject-adder hidden">
+                <span>⚠️ No subjects found. Add one here:</span>
+                <div class="form-row">
+                  <input type="text" id="ai-quick-sub" placeholder="e.g. Machine Learning, OS..." />
+                  <button class="btn-primary btn-sm" onclick="quickAddSubject('ai-quick-sub')">+ Add Subject</button>
+                </div>
+              </div>
+              <button class="btn-primary" onclick="generateAIPlan()">⚡ Generate Plan</button>
+            </div>
+            <div id="ai-output" class="ai-output hidden"></div>
+          </section>
+
+          <!-- TASKS -->
+          <section id="section-tasks" class="section">
+            <div class="section-header">
+              <h1>✅ Task Manager</h1>
+              <p class="section-sub">Track every task, topic, and deadline.</p>
+            </div>
+            <div id="tasks-no-subject-warn" class="inline-subject-adder hidden">
+              <span>⚠️ No subjects yet. Add one here:</span>
+              <div class="form-row">
+                <input type="text" id="tasks-quick-sub" placeholder="e.g. Chemistry, DSA..." />
+                <button class="btn-primary btn-sm" onclick="quickAddSubject('tasks-quick-sub')">+ Add Subject</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="form-row flex-wrap">
+                <input type="text" id="task-name" placeholder="Task description..." />
+                <select id="task-subject"></select>
+                <input type="date" id="task-due" />
+                <button class="btn-primary" onclick="addTask()">+ Add Task</button>
+              </div>
+            </div>
+            <div id="task-list" class="task-list"></div>
+          </section>
+
+          <!-- PROGRESS -->
+          <section id="section-progress" class="section">
+            <div class="section-header">
+              <h1>📊 Progress Tracker</h1>
+              <p class="section-sub">See how much you've accomplished.</p>
+            </div>
+            <div class="progress-cards">
+              <div class="card progress-overview-card">
+                <div class="card-header">Task Completion</div>
+                <div class="big-stat" id="prog-completion">0%</div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-bar"></div></div>
+                <div class="prog-meta">
+                  <span id="prog-done-count">0 done</span>
+                  <span id="prog-pending-count">0 pending</span>
+                </div>
+              </div>
+              <div class="card progress-overview-card">
+                <div class="card-header">By Subject</div>
+                <div id="subject-progress-chart"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- GOALS -->
+          <section id="section-goals" class="section">
+            <div class="section-header">
+              <h1>🎯 Goals</h1>
+              <p class="section-sub">Set your study goals and track them here.</p>
+            </div>
+            <div class="card">
+              <div class="form-row">
+                <input type="text" id="goal-input" placeholder="e.g. Complete DSA in 30 days..." />
+                <button class="btn-primary" onclick="addGoal()">+ Add Goal</button>
+              </div>
+            </div>
+            <div id="goal-list" class="goal-list"></div>
+          </section>
+
+          <!-- PROFILE -->
+          <section id="section-profile" class="section">
+            <div class="section-header">
+              <h1>👤 Profile</h1>
+              <p class="section-sub">Manage your info and study subjects.</p>
+            </div>
+            <div class="profile-grid">
+              <div class="card">
+                <div class="card-header">Account Info</div>
+                <div class="profile-avatar-wrap">
+                  <div class="profile-avatar" id="profile-avatar-big">A</div>
+                </div>
+                <div class="form-group">
+                  <label>Display Name</label>
+                  <input type="text" id="profile-name" placeholder="Your name..." />
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" id="profile-email" readonly />
+                </div>
+                <div class="form-group">
+                  <label>Daily Study Goal (hours)</label>
+                  <input type="number" id="profile-hours" min="1" max="16" value="4" />
+                </div>
+                <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+              </div>
+
+              <div class="card subject-manager-card">
+                <div class="card-header">🏷️ Subject Manager</div>
+                <p class="subject-manager-desc">
+                  Add <strong>any subject</strong> you study. No preset subjects — completely custom.
+                  These appear in Planner, Tasks, and AI Planner automatically.
+                </p>
+                <div class="subject-add-box">
+                  <input type="text" id="subject-input" class="subject-big-input"
+                    placeholder="Type any subject: Thermodynamics, DSA, Corporate Law, Yoga..." maxlength="50" />
+                  <button class="btn-primary subject-add-btn" onclick="addSubject()">+ Add Subject</button>
+                </div>
+                <p class="hint">Press <kbd>Enter</kbd> · Max 50 characters per subject</p>
+                <div class="subject-count-row">
+                  <span id="subject-count-label" class="subject-count">0 subjects added</span>
+                  <button class="btn-danger btn-sm" onclick="clearAllSubjects()" id="clear-all-btn" style="display:none">Clear All</button>
+                </div>
+                <div id="subject-tags" class="tag-row subject-tags-area"></div>
+              </div>
+            </div>
+          </section>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+  <script src="script.js"></script>
+</body>
+</html>
